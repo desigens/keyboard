@@ -1,0 +1,92 @@
+.output {
+  height: 50px;
+}
+.code {
+  width: 50px;
+  height: 30px;
+  float: left;
+  border: 3px solid #999;
+}
+.keyboard {
+  width: 800px;
+  font-family: Helvetica;
+  font-weight: 100;
+  background-color: #eee;
+  overflow: hidden;
+  border-radius: 5px;
+  padding: 10px;
+  display: inline-block;
+}
+.keys-raw {
+  overflow: hidden;
+}
+.keys-arrows {
+  position: relative;
+  float: left;
+}
+.key {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 46px;
+  height: 46px;
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  margin: 3px;
+  line-height: 45px;
+  float: left;
+  box-shadow: inset 0 0 1px 2px #000000, inset 0 1px 2px 2px #999999, inset 0 -1px 0 2px #444444;
+}
+.key:hover,
+.key:active,
+.key.active {
+  box-shadow: inset 0 0 0 2px #000;
+}
+.key-delete,
+.key-tab {
+  width: 72px;
+}
+.key-capslock,
+.key-return {
+  width: 85px;
+}
+.key-shift {
+  width: 111px;
+  width: 111px;
+}
+.key-space {
+  width: 254px;
+}
+.key-command {
+  width: 59px;
+}
+.key-up {
+  position: absolute;
+  left: 52px;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 1px #666 solid;
+}
+.key-down {
+  border-radius: 0 0 5px 5px;
+  border-top: 1px #666 solid;
+}
+.key-down,
+.key-left,
+.key-right {
+  margin-bottom: 0;
+  margin-top: 29px;
+}
+.keys-raw-last .key {
+  font-size: 11px;
+  height: 52.418604651162795px;
+  line-height: 52.418604651162795px;
+}
+.keys-raw-last .key-up,
+.keys-raw-last .key-down,
+.keys-raw-last .key-left,
+.keys-raw-last .key-right {
+  height: 26.209302325581397px;
+  line-height: 26.209302325581397px;
+}

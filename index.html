@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="styles.css">
+		<script src="jquery.js"></script>
+	</head>
+	<body>
+
+	<div class="output"><span class="code"></span></div>
+		
+	<div class="keyboard">
+
+	<div class="keys-raw">
+		
+		<div class="key" data-code="96">~</div>
+		<div class="key" data-code="49">1</div>
+		<div class="key" data-code="50">2</div>
+		<div class="key" data-code="51">3</div>
+		<div class="key" data-code="52">4</div>
+		<div class="key" data-code="53">5</div>
+		<div class="key" data-code="54">6</div>
+		<div class="key" data-code="55">7</div>
+		<div class="key" data-code="56">8</div>
+		<div class="key" data-code="57">9</div>
+		<div class="key" data-code="48">0</div>
+		<div class="key" data-code="45">-</div>
+		<div class="key" data-code="61">=</div>
+		<div class="key key-delete" data-code="8">delete</div>
+
+	</div>
+
+	<div class="keys-raw">
+
+
+		<div class="key key-tab" data-code="9">tab</div>
+		<div class="key" data-code="113">Q</div>
+		<div class="key" data-code="119">W</div>
+		<div class="key" data-code="">E</div>
+		<div class="key" data-code="">R</div>
+		<div class="key" data-code="">T</div>
+		<div class="key" data-code="">Y</div>
+		<div class="key" data-code="">U</div>
+		<div class="key" data-code="">I</div>
+		<div class="key" data-code="">O</div>
+		<div class="key" data-code="">P</div>
+		<div class="key" data-code="">[</div>
+		<div class="key" data-code="">]</div>
+		<div class="key" data-code="">\</div>
+
+	</div>
+
+	<div class="keys-raw">
+		<div class="key key-capslock" data-code="">caps lock</div>
+		<div class="key" data-code="">A</div>
+		<div class="key" data-code="">S</div>
+		<div class="key" data-code="">D</div>
+		<div class="key" data-code="">F</div>
+		<div class="key" data-code="">G</div>
+		<div class="key" data-code="">H</div>
+		<div class="key" data-code="">J</div>
+		<div class="key" data-code="">K</div>
+		<div class="key" data-code="">L</div>
+		<div class="key" data-code="">;</div>
+		<div class="key" data-code="">'</div>
+		<div class="key key-return" data-code="">return</div>
+
+	</div>
+
+	<div class="keys-raw">
+		<div class="key key-shift" data-code="">shift</div>
+		<div class="key" data-code="">Z</div>
+		<div class="key" data-code="">X</div>
+		<div class="key" data-code="">C</div>
+		<div class="key" data-code="">V</div>
+		<div class="key" data-code="">B</div>
+		<div class="key" data-code="">N</div>
+		<div class="key" data-code="">M</div>
+		<div class="key" data-code="">,</div>
+		<div class="key" data-code="">.</div>
+		<div class="key" data-code="">/</div>
+		<div class="key key-shift" data-code="">shift</div>
+	</div>
+
+	<div class="keys-raw keys-raw-last">
+		<div class="key key-fn" data-code="">fn</div>
+		<div class="key key-control" data-code="">control</div>
+		<div class="key key-option" data-code="">option</div>
+		<div class="key key-command" data-code="">command</div>
+		<div class="key key-space" data-code=""><!-- space --></div>
+		<div class="key key-command" data-code="">command</div>
+		<div class="key key-option" data-code="">option</div>
+
+		<div class="keys-arrows">
+			<div class="key key-up" data-code="">up</div>
+			<div class="key key-left" data-code="">left</div>
+			<div class="key key-down" data-code="">down</div>
+			<div class="key key-right" data-code="">right</div>
+		</div>
+	</div>
+
+	</div>
+
+	<script>
+
+	// http://www.expandinghead.net/keycode.html
+
+			var keys = document.querySelectorAll('.key');
+			var output = document.querySelector('.output');
+			$(window).bind('keypress', function(e) {
+				var code = (e.keyCode ? e.keyCode : e.which);
+				var key;
+
+				// var 1
+				// key = $(keys).filter(function(){
+				// 	return $(this).data('code') == code;
+				// });		
+
+				// var 2 		
+				key = $(keys).filter(function(){
+					var re = new RegExp(String.fromCharCode(code), "i");
+					return re.test($(this).html());
+				});
+
+				if (key.length) {
+					key.addClass('active');	
+					// output.append(key.html());
+				}
+				
+				$(output).append(String.fromCharCode(code));
+
+				$('.code').html(code);
+				e.preventDefault();
+			});
+			$(window).bind('keyup', function(e){
+				$(keys).removeClass('active');
+				e.preventDefault();
+			});
+		
+	</script>
+
+	</body>
+</html>
